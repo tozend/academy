@@ -32,9 +32,6 @@
 # print(test_me())
 
 
-
-
-
 # # Balanced List
 # def gen_list(num=3):
 #     result = [i for i in range(0, num - 1)]
@@ -43,8 +40,6 @@
 #
 #
 # print(gen_list(5))
-
-
 
 
 # # Narcissistic Number
@@ -65,8 +60,6 @@
 # print(narcissistic(371))  # True
 # print(narcissistic(122))  # False
 # print(narcissistic(4887))  # False
-
-
 
 
 # # Group Anagrams
@@ -92,3 +85,91 @@
 #
 #
 # print(group_anagrams(test_list))
+
+
+# ----------
+# Practice / HomeTasks review session #1
+# ----------
+
+
+# # Palindrome detection
+# import re
+#
+# def is_palindrome(s):
+#     s = ''.join(re.findall('[^ !.,?]+', s)).lower()
+#     unpaired_chars = s
+#
+#     for i, char in enumerate(s):
+#         if char == s[-i-1]:
+#             unpaired_chars = unpaired_chars.replace(char, '', 1)
+#
+#     return not unpaired_chars
+#
+#
+# print(is_palindrome("racecar"))  # True
+# print(is_palindrome("Race Car"))  # True
+# print(is_palindrome("A man, a plan, a canal, Panama!"))  # True
+
+
+
+
+
+# # Dictionary KV swapper
+# data = {"key1": 25, 100: "value100", "cadabra": "abra", (1, 2): (3, 4), "shmobject": object, False: None}
+#
+#
+# def dict_swap(data):
+#     # result = {}
+#     # for key, value in data.items():
+#     #     if value.__hash__:
+#     #         result[value] = key
+#
+#     result = {value: key for key, value in data.items() if value.__hash__}
+#     return result
+#
+# print(dict_swap(data))
+# # Advanced task (#2 in tests):
+# tricky_data = {"cadabra": "abra", (1, 2): [3, 4], "oops": {}}
+# print(dict_swap(tricky_data))
+
+
+
+
+
+
+# # Sum of digits in a string
+#
+# def sum_digits(input_str: str) -> int:
+#     # result = 0
+#     # for char in input_str:
+#     #     if str.isdecimal(char):
+#     #         result += int(char)
+#
+#     #result = sum([int(char) for char in input_str if str.isdecimal(char)])
+#     return sum([int(char) for char in input_str if str.isdecimal(char)])
+#
+#
+# # Small tests
+# print(sum_digits("abc123___##05__5"))  # 16
+# print(sum_digits("00000000000"))  # 0
+# print(sum_digits("@@@@@@-1.0####"))  # 1
+# print(sum_digits("100____½"))  # 1
+
+
+
+
+
+# Pirate frequency
+from typing import List
+
+
+def pirate_frequency(string: str, threshold: int) -> List[str]:
+    """
+    Returns a list of letters that appear more than a certain
+    number of times in a given string.
+    """
+
+    return []
+
+
+print(pirate_frequency("Ahoy, matey!", 1))  # ['a', 'e', 'o', 'y'])
