@@ -16,8 +16,7 @@
 #
 # print(gcd(8, 12))
 # print(gcd(54, 24))
-
-
+import string
 # # Give me numbers!
 # def test_me(x=333, y=7553):
 #     result = []
@@ -111,9 +110,6 @@
 # print(is_palindrome("A man, a plan, a canal, Panama!"))  # True
 
 
-
-
-
 # # Dictionary KV swapper
 # data = {"key1": 25, 100: "value100", "cadabra": "abra", (1, 2): (3, 4), "shmobject": object, False: None}
 #
@@ -131,10 +127,6 @@
 # # Advanced task (#2 in tests):
 # tricky_data = {"cadabra": "abra", (1, 2): [3, 4], "oops": {}}
 # print(dict_swap(tricky_data))
-
-
-
-
 
 
 # # Sum of digits in a string
@@ -156,20 +148,59 @@
 # print(sum_digits("100____½"))  # 1
 
 
+# # Pirate frequency
+# from typing import List
+#
+#
+# def pirate_frequency(input_string: str, threshold: int) -> List[str]:
+#     """
+#     Returns a list of letters that appear more than a certain
+#     number of times in a given string.
+#     """
+#     char_frequency = {}
+#     for char in input_string.lower():
+#         if char in string.ascii_letters:
+#             char_frequency[char] = char_frequency.setdefault(char, 0) + 1
+#
+#     # result = []
+#     # for letter, frequency in char_frequency.items():
+#     #     if frequency > threshold:
+#     #         result.append(letter)
+#
+#     result = [letter for letter, frequency in char_frequency.items() if frequency > threshold]
+#     return sorted(result)
+#
+#
+# # print(pirate_frequency("Ahoy, matey!", 1))  # ['a', 'e', 'o', 'y'])
+# # print(pirate_frequency("Dead men tell no tales.", 3)) # ["e"]
+# # print(pirate_frequency("Thar she blows!", 3)) # []
+# print(pirate_frequency("Avast, ye landlubbers!", 1))  # → ['a', 's', 'e', 'l', 'b'])
 
 
 
-# Pirate frequency
-from typing import List
 
-
-def pirate_frequency(string: str, threshold: int) -> List[str]:
-    """
-    Returns a list of letters that appear more than a certain
-    number of times in a given string.
-    """
-
-    return []
-
-
-print(pirate_frequency("Ahoy, matey!", 1))  # ['a', 'e', 'o', 'y'])
+#
+# # Bird Sightings
+# from typing import List, Tuple, Dict
+#
+#
+# def analyze_birds(sightings: List[Tuple[str, str]]) -> Dict[str, str]:
+#     """
+#     Returns a dictionary that maps each color to the most commonly observed bird species of that color.
+#     If there are multiple species that are equally common for a given color, returns any one of those species.
+#     """
+#     result = {}
+#     for bird, color in sightings:
+#         result[color] = result.setdefault(color, bird)
+#
+#     return result
+#
+#
+# # Should return: {'red': 'Robin', 'brown': 'Sparrow', 'blue': 'Blue Jay'})
+# # print(analyze_birds(
+# #     [("Robin", "red"), ("Sparrow", "brown"), ("Robin", "brown"), ("Blue Jay", "blue"), ("Sparrow", "brown"),
+# #      ("Blue Jay", "blue"), ("Sparrow", "blue"), ("Sparrow", "brown")]))
+#
+# print(analyze_birds([("Robin", "red"), ("Sparrow", "brown"), ("Robin", "brown"), ("Blue Jay", "blue"), ("Sparrow", "brown"), ("Blue Jay", "blue"), ("Sparrow", "blue"), ("Sparrow", "brown")]))
+#
+#
