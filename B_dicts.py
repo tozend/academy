@@ -86,9 +86,15 @@ import string
 # print(group_anagrams(test_list))
 
 
+
+
+
+
+
 # ----------
 # Practice / HomeTasks review session #1
 # ----------
+
 
 
 # # Palindrome detection
@@ -204,3 +210,116 @@ import string
 # print(analyze_birds([("Robin", "red"), ("Sparrow", "brown"), ("Robin", "brown"), ("Blue Jay", "blue"), ("Sparrow", "brown"), ("Blue Jay", "blue"), ("Sparrow", "blue"), ("Sparrow", "brown")]))
 #
 #
+
+
+
+
+
+
+
+
+
+# ----------
+# Collections, Functions
+# ----------
+
+
+
+# #  Recursive function
+# list_ = [1, [2, [3], 4]] # 10
+# list_ = [[[[1, 4, 5], [[6, 9], [[[8, 1], 7], 3], 2], 7], 5, 2], 9, [1, 2]]
+#
+#
+# def rec_func(list_):
+#     result = 0
+#
+#     for element in list_:
+#         if type(element) is int:
+#             result += element
+#         elif type(element) is list:
+#             result += rec_func(element)
+#
+#     return result
+#
+#
+# print(rec_func(list_))
+
+
+
+
+
+# #  DJ helper tool
+# songs_db = [{
+#     'artist': 'Led Zeppelin',
+#     'title': 'Stairways to heaven',
+#     'playback': '09:20'
+# }, {
+#     'artist': 'Metallica',
+#     'title': 'Master of puppets',
+#     'playback': '04:30'
+# }, {
+#     'artist': 'Nirvana',
+#     'title': 'The Man who sold the world',
+#     'playback': '03:10'
+# }, {
+#     'artist': 'Stepan Galyabarda',
+#     'title': 'Lyst do mamy',
+#     'playback': '02:20'
+# }]
+#
+#
+# def _min_to_sec(time_in_minutes: str):
+#     separator_index = time_in_minutes.index(':')
+#     time_in_sec = int(time_in_minutes[:separator_index]) * 60 + int(time_in_minutes[separator_index + 1:])
+#     return time_in_sec
+#
+#
+# def get_song(db, len_seconds):
+#     max_allowed_playback_time = 0
+#     artist, title = "", ""
+#
+#     for song in songs_db:
+#         if (_min_to_sec(song['playback']) <= len_seconds) and (
+#                 _min_to_sec(song['playback']) >= max_allowed_playback_time):
+#             max_allowed_playback_time = _min_to_sec(song['playback'])
+#             artist, title = song['artist'], song['title']
+#
+#     if not max_allowed_playback_time:
+#         return False
+#
+#     return "Best possible song: {}/{}".format(artist, title)
+#
+#
+# print(get_song(songs_db, 145))
+# print(get_song(songs_db, 645))
+
+
+
+
+
+
+# #  Resources Check
+# from typing import List, Tuple
+# from enum import Enum
+#
+# storage = {
+#     'wood': 100,
+#     'stone': 50,
+#     'bricks': 200,
+#     'glass': 30
+# }
+#
+#
+# def has_enough_resources(required_resources: List[Tuple[str, int]]) -> bool:
+#     for element in required_resources:
+#         if (element[0] not in storage.keys()) or (element[1] > storage[element[0]]):
+#             break
+#     else:
+#         return True
+#
+#     return False
+#
+#
+# print(has_enough_resources([("iron", 50), ("stone", 20), ("bricks", 100), ("glass", 20)]))  # True
+# print(has_enough_resources([("wood", 50), ("stone", 20), ("bricks", 100), ("glass", 20)]))  # True
+# print(has_enough_resources([("wood", 150), ("stone", 20), ("bricks", 50), ("glass", 20)]))  # False
