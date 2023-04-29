@@ -16,7 +16,7 @@
 #
 # print(gcd(8, 12))
 # print(gcd(54, 24))
-import string
+#import string
 # # Give me numbers!
 # def test_me(x=333, y=7553):
 #     result = []
@@ -323,3 +323,296 @@ import string
 # print(has_enough_resources([("iron", 50), ("stone", 20), ("bricks", 100), ("glass", 20)]))  # True
 # print(has_enough_resources([("wood", 50), ("stone", 20), ("bricks", 100), ("glass", 20)]))  # True
 # print(has_enough_resources([("wood", 150), ("stone", 20), ("bricks", 50), ("glass", 20)]))  # False
+
+
+
+
+
+
+
+
+
+
+# ----------
+# Builtins and FP basics
+# ----------
+
+# # Polish Flag
+# WHITE_SQUARE = "\u2B1c"
+# RED_SQUARE = "\U0001F7E5"
+#
+# def flag(width=10, height=4):
+#     white_part = ((WHITE_SQUARE * width) + '\n') * int(height / 2)
+#     red_part = ((RED_SQUARE * width) + '\n') * int(height / 2)
+#
+#     return white_part + red_part
+#
+#
+# print(flag(width=10, height=4))
+# #print(flag(width=2, height=2))
+
+
+
+
+
+# # Tribonacci
+# def tribonacci(length=8, signature=(0, 1, 1)):
+#
+#     result = list(signature)
+#
+#     # for i in range(length-3):
+#     #     #result.append(result[-1] + result[-2] + result[-3])
+#     #     result.append(sum(result[-3:]))
+#
+#
+#     [result.append(sum(result[-3:])) for _ in range(length - 3)]
+#     return result
+#
+#
+# print(tribonacci(8, [0,1, 1])) # [0, 1, 1, 2, 4, 7, 13, 24]
+# #print(tribonacci([0,0,1]))
+
+
+
+
+
+#
+# # Practice with function arguments
+# def gen_mul_table(width=10, height=10, *, sep_width=3, print_header=False, print_footer=True):
+#     result = ""
+#
+#     if print_header:
+#         result += f"Multiplication Table {width} x {height}\n"
+#
+#     for i in range(1, width + 1):
+#         for j in range(1, height + 1):
+#             result += f'{i * j:{sep_width}}'
+#         result += "\n"
+#
+#     if print_footer:
+#         result += '-' * 30
+#
+#     return result[:-1]
+#
+#
+# #print(gen_mul_table(5, 5))
+# print(gen_mul_table(4, 4, print_header=True, sep_width=4, print_footer=True))
+# # gen_mul_table(3, 3, 5)
+
+
+
+
+
+# # Common Topics
+# FRIENDS = [
+#     ["Python", "Drawing", "Games", "Girls", "Weapons", "Games", "Books"],
+#     ["Music", "Politics", "Books", "Girls", "Python", "Cinema", "Cars"],
+#     ["Cinema", "Music", "Drawing", "Python", "Books", "History"],
+#     ["War", "Sport", "Books", "Games", "Python", "Cinema", "Cars"],
+#     ["Knifes", "Games", "Books", "Girls", "Cinema", "Cars", "Python"],
+#     ["Sport", "Drawing", "Books", "Girls", "Games", "Music"],
+# ]
+#
+#
+# def get_common_topics(friends=FRIENDS, topics=3):
+#     topics_rank = dict()
+#
+#     for friend in FRIENDS:
+#         for topic in set(friend):
+#             topics_rank[topic] = topics_rank.get(topic, 0) + 1
+#
+#
+#     result = list()
+#
+#     #topics_rank = {v:k for k, v in topics_rank.items()}
+#     print(topics_rank)
+#
+#
+#
+#     #print(max(topics_rank.values()))
+#
+#     for _ in range(topics):
+#         result.append(topics_rank.pop(max(topics_rank, key=topics_rank.get), topics_rank))
+#         #del topics_rank[max(topics_rank, key=topics_rank.get)]
+#
+#     #print(topics_rank)
+#
+#     #result = [key for key, value in topics_rank.items() if value == max(topics_rank.values())]
+#
+#     #result = sorted(topics_rank.values())[:topics]
+#     return result
+#
+#
+# print(get_common_topics())
+
+
+
+
+
+# #  Simple reversing decorator
+# def deco(func):
+#     def wrapper(*args):
+#         return str(func(*args))[::-1]
+#     return wrapper
+#
+#
+# @deco
+# def test_me():
+#     return True
+#
+#
+# print(test_me())  # "eurT"
+
+
+
+
+# def my_decorator(func):
+#     def wrapper():
+#         print("Something is happening before the function is called.")
+#         func()
+#         print("Something is happening after the function is called.")
+#     return wrapper
+#
+# @my_decorator
+# def say_hello():
+#     print("Hello!")
+#
+# say_hello()
+
+#
+# def my_decorator(func):
+#     def wrapper():
+#         print("Something is happening before the function is called.")
+#         #func()
+#         print("Something is happening after the function is called.")
+#     return wrapper
+#
+# @my_decorator
+# def say_hello():
+#     print("Hello!")
+#
+# say_hello()
+
+
+# def my_deco(func):
+#     print("Init...") # We'll see this once
+#     return func
+#
+# @my_deco
+# def test1(x):
+#     return x
+#
+# print(test1(25))
+# print(test1(48))
+
+
+
+# def my_deco(func):
+#     def wrapper(*args):
+#         wrapper.counter += 1
+#         return func(*args)
+#
+#     wrapper.counter = 0
+#     return wrapper
+#
+#
+# @my_deco
+# def test1(x):
+#     return x
+#
+#
+# print(test1(25), test1(48), test1(55))
+# print(test1(1))
+# print(test1.counter)
+# print(test1(1))
+# print(test1.counter)
+
+
+# def makebold(fn):
+#     def wrapped(*args, **kwargs):
+#         return "<b>" + str(fn(*args, **kwargs)) + "</b>"
+#     return wrapped
+#
+# def makeitalic(fn):
+#     def wrapped(*args, **kwargs):
+#         return "<i>" + str(fn(*args, **kwargs)) + "</i>"
+#     return wrapped
+#
+# def makered(fn):
+#     def wrapped(*args, **kwargs):
+#         return "<span style='color: red;'>" + str(fn(*args, **kwargs)) + "</span>"
+#     return wrapped
+#
+# @makebold
+# @makeitalic
+# @makered
+# def hello(text="Goodbye World!"):
+#     return text
+#
+# #hello = makebold(makeitalic(makered(hello)))
+#
+# print(hello())
+
+
+
+
+# #  Only Evens
+# def get_only_evens(list_: list) -> list:
+#     # result = []
+#     # for count, element in enumerate(list_):
+#     #     if (element % 2 == 0) and (count % 2 == 0):
+#     #         result.append(element)
+#
+#     result = [element for count, element in enumerate(list_) if (element % 2 == 0) and (count % 2 == 0)]
+#     return result
+#
+# print(get_only_evens([1, 3, 2, 6, 4, 8]))
+
+
+
+
+# # Unused Digits
+#
+# # #-Old solution
+# # def unused_digits(*args):
+# #     digits_left = [str(x) for x in range(10)]
+# #     digits_to_check = "".join([str(x) for x in args])
+# #
+# #     for char in digits_to_check:
+# #         if char in digits_left:
+# #             digits_left.remove(char)
+# #
+# #     result = ''.join(digits_left)
+# #     return result
+#
+# def unused_digits(*args):
+#     possible_digits = {str(x) for x in range(10)}
+#     digits_to_check = set("".join([str(x) for x in args]))
+#
+#     result = "".join(sorted(possible_digits - digits_to_check))
+#     return result
+#
+#
+# print(unused_digits(12, 34, 56, 78))  # "09"
+# print(unused_digits(2015, 8, 26))  # "3479"
+
+
+
+
+
+# # Rabbits and chickens
+# def count_rabbits_chickens(heads, legs):
+#     rabbits = 0
+#
+#     for _ in range(heads):
+#         chickens = 0
+#         for _ in range(heads):
+#             if (chickens + rabbits == heads) and (rabbits * 4 + chickens * 2 == legs):
+#                 return rabbits, chickens
+#             chickens += 1
+#         rabbits += 1
+#
+#     return "Not possible"
+#
+#
+# print(count_rabbits_chickens(3, 10))  # 2, 1
