@@ -417,33 +417,20 @@
 # def get_common_topics(friends=FRIENDS, topics=3):
 #     topics_rank = dict()
 #
-#     for friend in FRIENDS:
+#     for friend in friends:
 #         for topic in set(friend):
 #             topics_rank[topic] = topics_rank.get(topic, 0) + 1
 #
-#
 #     result = list()
 #
-#     #topics_rank = {v:k for k, v in topics_rank.items()}
-#     print(topics_rank)
-#
-#
-#
-#     #print(max(topics_rank.values()))
-#
 #     for _ in range(topics):
-#         result.append(topics_rank.pop(max(topics_rank, key=topics_rank.get), topics_rank))
-#         #del topics_rank[max(topics_rank, key=topics_rank.get)]
+#         max_keys = sorted([k for k, v in topics_rank.items() if v == max(topics_rank.values())])
+#         result.append(max_keys[0])
+#         topics_rank.pop(max_keys[0])
 #
-#     #print(topics_rank)
-#
-#     #result = [key for key, value in topics_rank.items() if value == max(topics_rank.values())]
-#
-#     #result = sorted(topics_rank.values())[:topics]
 #     return result
 #
-#
-# print(get_common_topics())
+# print(get_common_topics(topics=6))
 
 
 
@@ -616,3 +603,41 @@
 #
 #
 # print(count_rabbits_chickens(3, 10))  # 2, 1
+
+
+
+
+
+
+# # Shipping Cost
+# from typing import List, Tuple
+#
+# shipping_rates = {
+#     'New York': 250.0,
+#     'Los Angeles': 300.0,
+#     'Seattle': 200.0,
+#     'Houston': 275.0
+# }
+#
+#
+# def total_cost_to_port(cargo: List[Tuple[str, float, str]], port: str) -> float:
+#     """The function calculates the total shipping cost
+#     for all items that are being shipped to that specific port.
+#     """
+#     if port not in shipping_rates:
+#         return 0.0
+#
+#     # total_cost = 0.0
+#     #
+#     # for item in cargo:
+#     #     if item[2] == port:
+#     #         total_cost += item[1] * shipping_rates[port]
+#
+#     total_cost = sum(item[1] * shipping_rates[port] for item in cargo if item[2] == port)
+#     return total_cost
+#     #albo jako totalny oneliner:
+#     #return sum(item[1] * shipping_rates[port] for item in cargo if item[2] == port) if port in shipping_rates else 0.0
+#
+#
+# #print(total_cost_to_port([("Apples", 5.0, "New York"), ("Oranges", 3.0, "Los Angeles"), ("Bananas", 2.5, "Seattle"), ("Pineapples", 4.0, "Houston")], "Los Angeles")) #     900.0)
+# print(total_cost_to_port([("Apples", 5.0, "New York"), ("Apples", 10.0, "New York")], "New York")) #     900.0)
