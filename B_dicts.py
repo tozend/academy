@@ -333,6 +333,17 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 # ----------
 # Builtins and FP basics
 # ----------
@@ -641,3 +652,75 @@
 #
 # #print(total_cost_to_port([("Apples", 5.0, "New York"), ("Oranges", 3.0, "Los Angeles"), ("Bananas", 2.5, "Seattle"), ("Pineapples", 4.0, "Houston")], "Los Angeles")) #     900.0)
 # print(total_cost_to_port([("Apples", 5.0, "New York"), ("Apples", 10.0, "New York")], "New York")) #     900.0)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# ----------
+# Practice / HomeTasks review session #2
+# ----------
+
+
+# # Obfuscator of duplicates
+# test_string = "Hello, my password is: 'AaaBBBccc', cooool, right?"
+# expected_result = "Hello, my password is: '*********', c***ol, right?"
+#
+#
+# def test_me(test_string):
+#     result = ''
+#
+#     for i in range(len(test_string)):
+#         if test_string.lower()[i] == test_string.lower()[i-1] == test_string.lower()[i-2] and result[i-1] != '*':
+#             result = result[:-2] + '***'
+#             continue
+#         result += test_string[i]
+#
+#     return result
+#
+#
+# if test_me(test_string) == expected_result:
+#     print("You did well: %s" % expected_result)
+# else:
+#     print("You got:\n%s\nTry again..." % test_me(test_string))
+
+
+
+
+
+# # Find longest palindrome
+#
+# def isPalindrome(s):
+#     return s == s[::-1]
+#
+# def get_longest_palindrome(s):
+#     palindromes = []
+#
+#     for i in range(len(s)):
+#         for j in range(i + 1, len(s) + 1):
+#             word = s[i:j]
+#             if isPalindrome(word):
+#                 palindromes.append(word)
+#
+#     return max(palindromes, key=len)
+#
+# #print(get_longest_palindrome("AbA121"))  # Aba
+# #print(get_longest_palindrome("AbAtopot123321"))  # 123321
+# print(get_longest_palindrome("hohoho"))
