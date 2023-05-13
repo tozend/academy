@@ -724,3 +724,47 @@
 # #print(get_longest_palindrome("AbA121"))  # Aba
 # #print(get_longest_palindrome("AbAtopot123321"))  # 123321
 # print(get_longest_palindrome("hohoho"))
+
+
+
+
+
+
+
+
+
+
+
+
+# # ----------
+# # Code Style, modules/packages
+# # ----------
+#
+#
+# # Merging logs
+# list1 = [
+#     {"id": "3456", "message": "Service started OK", "datetime": 1474624881},
+#     {"id": "123124", "message": "DB stopped! Whatta hell!", "datetime": 1474456391},
+#     {"id": "12353", "message": "MQ broker is not brokering!", "datetime": 1474624591},
+#     {"id": "1223134", "message": "U hev bin pwned by hax0r tim!", "datetime": 1474624799},
+#     {"id": "1213234", "message": "Need more vespene gas!", "datetime": 1474624791},
+# ]
+#
+# list2 = [
+#     {"id": "3456", "message": "Service started OK", "datetime": 1474624881},
+#     {"id": "12353", "message": "MQ broker is not brokering!", "datetime": 1474624591},
+#     {"id": "3334113", "message": ""'; DELETE FROM customers WHERE 1 or username = '"; ", "datetime": 1474624789},
+#     {"id": "1213235", "message": "Require more minerals!", "datetime": 1474624792},
+# ]
+#
+#
+# def merge_logs(list1, list2):
+#     # merged_logs = {log['id']: log for log in list1 + list2} # {'3456': {'id': '3456', 'message': 'Service started OK', 'datetime': 1474624881}, '123124': {'id': '123124', 'message': 'DB stopped! Whatta hell!', 'datetime': 1474456391}
+#     # merged_logs = list(merged_logs.values())
+#
+#     merged_logs = list({log['id']: log for log in list1 + list2}.values())
+#     sorted_logs = sorted(merged_logs, key=lambda k: k['datetime'])
+#     return sorted_logs
+#
+# print(merge_logs(list1, list2))
+
