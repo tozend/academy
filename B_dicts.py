@@ -16,7 +16,7 @@
 #
 # print(gcd(8, 12))
 # print(gcd(54, 24))
-#import string
+# import string
 # # Give me numbers!
 # def test_me(x=333, y=7553):
 #     result = []
@@ -86,15 +86,9 @@
 # print(group_anagrams(test_list))
 
 
-
-
-
-
-
 # ----------
 # Practice / HomeTasks review session #1
 # ----------
-
 
 
 # # Palindrome detection
@@ -183,8 +177,6 @@
 # print(pirate_frequency("Avast, ye landlubbers!", 1))  # → ['a', 's', 'e', 'l', 'b'])
 
 
-
-
 #
 # # Bird Sightings
 # from typing import List, Tuple, Dict
@@ -212,17 +204,9 @@
 #
 
 
-
-
-
-
-
-
-
 # ----------
 # Collections, Functions
 # ----------
-
 
 
 # #  Recursive function
@@ -243,9 +227,6 @@
 #
 #
 # print(rec_func(list_))
-
-
-
 
 
 # #  DJ helper tool
@@ -294,10 +275,6 @@
 # print(get_song(songs_db, 645))
 
 
-
-
-
-
 # #  Resources Check
 # from typing import List, Tuple
 # from enum import Enum
@@ -325,25 +302,6 @@
 # print(has_enough_resources([("wood", 150), ("stone", 20), ("bricks", 50), ("glass", 20)]))  # False
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 # ----------
 # Builtins and FP basics
 # ----------
@@ -363,9 +321,6 @@
 # #print(flag(width=2, height=2))
 
 
-
-
-
 # # Tribonacci
 # def tribonacci(length=8, signature=(0, 1, 1)):
 #
@@ -382,9 +337,6 @@
 #
 # print(tribonacci(8, [0,1, 1])) # [0, 1, 1, 2, 4, 7, 13, 24]
 # #print(tribonacci([0,0,1]))
-
-
-
 
 
 #
@@ -409,9 +361,6 @@
 # #print(gen_mul_table(5, 5))
 # print(gen_mul_table(4, 4, print_header=True, sep_width=4, print_footer=True))
 # # gen_mul_table(3, 3, 5)
-
-
-
 
 
 # # Common Topics
@@ -444,9 +393,6 @@
 # print(get_common_topics(topics=6))
 
 
-
-
-
 # #  Simple reversing decorator
 # def deco(func):
 #     def wrapper(*args):
@@ -460,8 +406,6 @@
 #
 #
 # print(test_me())  # "eurT"
-
-
 
 
 # def my_decorator(func):
@@ -502,7 +446,6 @@
 #
 # print(test1(25))
 # print(test1(48))
-
 
 
 # def my_deco(func):
@@ -552,8 +495,6 @@
 # print(hello())
 
 
-
-
 # #  Only Evens
 # def get_only_evens(list_: list) -> list:
 #     # result = []
@@ -565,8 +506,6 @@
 #     return result
 #
 # print(get_only_evens([1, 3, 2, 6, 4, 8]))
-
-
 
 
 # # Unused Digits
@@ -595,9 +534,6 @@
 # print(unused_digits(2015, 8, 26))  # "3479"
 
 
-
-
-
 # # Rabbits and chickens
 # def count_rabbits_chickens(heads, legs):
 #     rabbits = 0
@@ -614,10 +550,6 @@
 #
 #
 # print(count_rabbits_chickens(3, 10))  # 2, 1
-
-
-
-
 
 
 # # Shipping Cost
@@ -654,26 +586,6 @@
 # print(total_cost_to_port([("Apples", 5.0, "New York"), ("Apples", 10.0, "New York")], "New York")) #     900.0)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 # ----------
 # Practice / HomeTasks review session #2
 # ----------
@@ -702,9 +614,6 @@
 #     print("You got:\n%s\nTry again..." % test_me(test_string))
 
 
-
-
-
 # # Find longest palindrome
 #
 # def isPalindrome(s):
@@ -724,16 +633,6 @@
 # #print(get_longest_palindrome("AbA121"))  # Aba
 # #print(get_longest_palindrome("AbAtopot123321"))  # 123321
 # print(get_longest_palindrome("hohoho"))
-
-
-
-
-
-
-
-
-
-
 
 
 # # ----------
@@ -768,3 +667,100 @@
 #
 # print(merge_logs(list1, list2))
 
+
+# ----------
+# OOP #1
+# ----------
+
+
+# # Farm Simulator
+# class Farm:
+#     price_sheep = 500
+#     price_cow = 1000
+#     price_chicken = 50
+#     price_square = 700
+#
+#     def __str__(self):
+#         return f'Farm "{self.name}", sq: {self.square} ha, value: ${self.get_value()}'
+#
+#     # This is currently incomplete:
+#     def __init__(self, name, square, sheep, cows, chickens):
+#         self.name = name
+#         self.square = square
+#         self.sheep = sheep
+#         self.cows = cows
+#         self.chickens = chickens
+#
+#     def get_value(self):
+#         "Return money value of the farm"
+#         result = (self.square * self.price_square) + (self.sheep * self.price_sheep) +\
+#                  (self.cows * self.price_cow) + (self.chickens * self.price_chicken)
+#         return result
+#
+#     def __eq__(self, other):
+#         "Return True/False if value of SELF is equal to the value of OTHER"
+#         return self.square == other.square
+#
+#     def __gt__(self, other):
+#         "Return True/False if value of SEL is greater than the value of OTHER"
+#         return self.square > other.square
+#
+#
+# # Simple Test
+# farm1 = Farm("My First Farm", 400, 10, 10, 10)
+# farm2 = Farm("My Second Farm", 300, 40, 30, 20)
+#
+# print(farm1)
+# print(farm2)
+# print(farm1 > farm2)
+
+
+
+
+
+# # OOP practice
+# class Animal:
+#     "Sample class - feel free to rename, add any attrs/methods you like"
+#
+#     def __init__(self, name, kind, color):
+#         self.name = name
+#         self.kind = kind
+#         self.color = color
+#
+#         self.hungry_counter = 1
+#
+#     def hello(self):
+#         return f'🐵 Animal desciption 🐵\nName: {self.name}\nKind: {self.kind}\nColor: {self.color}'
+#
+#     def trick(self):
+#         match self.kind:
+#             case 'dog':
+#                 self._increase_hungry_level()
+#                 return 'Bark!' if self.hungry_counter < 4 else 'Feed me'
+#             case 'cat':
+#                 self._increase_hungry_level()
+#                 return 'Meow!' if self.hungry_counter < 4 else 'Feed me'
+#             case _:
+#                 self._increase_hungry_level()
+#                 return 'Other trick' if self.hungry_counter < 4 else 'Feed me'
+#
+#     def _increase_hungry_level(self):
+#         self.hungry_counter += 1
+#
+#     def feed(self):
+#         self.hungry_counter = 0
+#         return 'Thanks for feed!'
+#
+#
+#
+#
+# zhuchka = Animal("Zhuchka", "dog", "brown")
+# print(zhuchka.hello())
+# print(zhuchka.trick())
+# print(zhuchka.feed())
+# print(zhuchka.trick())
+# print(zhuchka.trick())
+# print(zhuchka.trick())
+# print(zhuchka.trick())
+# print(zhuchka.trick())
+# print(zhuchka.feed())
