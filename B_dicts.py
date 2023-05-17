@@ -777,3 +777,113 @@
 # print(zhuchka.trick())
 # print(zhuchka.trick())
 # print(zhuchka.feed())
+
+
+
+
+
+
+
+
+
+
+# ----------
+# OOP #2
+# ----------
+
+# # Dice
+# # The following three constant definitions are equal.
+# # But the first(which looks the best) doesn't work
+# #   in CodeRunner
+# # DICES = "⚀⚁⚂⚃⚄⚅"
+# # DICES = "\N{DIE FACE-1}\N{DIE FACE-2}\N{DIE FACE-3}" \
+# #        "\N{DIE FACE-4}\N{DIE FACE-5}\N{DIE FACE-6}"
+# import random
+#
+#
+# DICES = "\u2680\u2681\u2682\u2683\u2684\u2685"
+#
+#
+# def dice(number=1):
+#     # result = []
+#     # for _ in range(number):
+#     #     result.append(DICES[random.randint(0, len(DICES) - 1)])
+#     result = [DICES[random.randint(0, len(DICES) - 1)] for _ in range(number)]
+#     return ' '.join(result)
+#
+#
+# # Some basic tests
+# print(f'All dices are: {DICES}')
+# print(dice())  # Should be some dice outputted
+# print(dice(3))  # Should be 3 dice outputted
+# print(dice(3).count(" ") == 2 and len(dice(3)) == 5)  # Should be True
+# print(all(x in DICES for x in dice(3).replace(" ", "")))  # Should be True
+
+
+
+
+# # Deck of cards
+# import random
+#
+#
+# class Card:
+#     suit = ''
+#     value = ''
+#
+#     def __init__(self, suit='Spade', value='Q'):
+#         self.suit = suit
+#         self.value = value
+#
+#     def __str__(self):
+#         return f"[{self.suit} {self.value}]"
+#
+#     def __repr__(self):
+#         return f"[{self.suit} {self.value}]"
+#
+#
+# class Deck:
+#     AVAILABLE_SUITS = ('♠', '♥', '♦', '♣')
+#     AVAILABLE_VALUES = ('2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A')
+#
+#     def __init__(self):
+#         # self.cards = []
+#         #
+#         # for suit in self.AVAILABLE_SUITS:
+#         #     for value in self.AVAILABLE_VALUES:
+#         #         self.cards.append(Card(suit, value))
+#         self.cards = [Card(suit, value) for suit in self.AVAILABLE_SUITS for value in self.AVAILABLE_VALUES]
+#
+#     def shuffle(self):
+#         random.shuffle(self.cards)
+#
+#     def pop(self, num=-1):
+#         return self.cards[num]
+#
+#     def random(self):
+#         return random.choice(self.cards)
+#
+#     # def index(self, suit, value):
+#     # result = self.cards.index(Card(suit, value))
+#     # return result
+#
+#     # for count, element in enumerate(self.cards):
+#     #     if element == Card(suit, value):
+#     #         return count
+#
+#     def __repr__(self):
+#         return self.cards
+#
+#
+# def run_some_tests():
+#     "Define a deck and run some tests!"
+#
+#     deck = Deck()
+#     print(deck.pop())
+#     deck.shuffle()
+#     print(deck.pop())
+#     print(deck.pop(23))
+#     print([str(deck.random()) for i in range(5)])
+#     # print(deck.index('♠', '7'))
+#
+#
+# run_some_tests()
